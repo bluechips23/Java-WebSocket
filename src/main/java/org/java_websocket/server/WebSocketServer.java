@@ -292,6 +292,7 @@ public abstract class WebSocketServer extends WebSocketAdapter implements Runnab
 					Iterator<SelectionKey> i = keys.iterator();
 
 					while ( i.hasNext() ) {
+						conn = null; //Make sure to reset the connection on each iteration to avoid state bugs.
 						key = i.next();
 
 						if( !key.isValid() ) {
